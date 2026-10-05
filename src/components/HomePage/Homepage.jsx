@@ -5,11 +5,10 @@ import ProductsPreview from "./ProductsPreview";
 
 export default function Homepage() {
   return (
-    <>
+    <div className="home-page-container">
       <NavBar />
       <Hero />
       <ProductsPreview />
-      
-    </>
+    </div>
   );
 }
