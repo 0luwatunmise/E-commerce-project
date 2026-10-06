@@ -11,7 +11,7 @@ export default function NavBar() {
             <a>About us</a>
         </div>
 
-        <div className="nav-bar-center">Brand Name</div>
+        <div className="nav-bar-center">HELLIOS</div>
 
         <div className="nav-bar-right">
           <div className="search-container">
@@ -21,9 +21,9 @@ export default function NavBar() {
             />
             <img src="../src/assets/search.svg" className="icon" />
           </div>
-          <a>
+          <Link to="/cart">
             <img src="../src/assets/shopping-cart.svg" className="icon" />
-          </a>
+          </Link>
         </div>
       </div>
     </>
