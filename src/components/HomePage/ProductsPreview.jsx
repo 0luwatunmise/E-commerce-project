@@ -1,7 +1,10 @@
 import "./ProductsPreview.css";
 import { Link } from "react-router-dom";
 
-export default function ProductsPreview() {
+export default function ProductsPreview({ products }) {
+  const productsPreview = products.slice(0, 8);
+  console.log(productsPreview);
+
   return (
     <div className="preview-products-container">
       <div className="product-link-container">
@@ -11,55 +14,32 @@ export default function ProductsPreview() {
       </div>
 
       <div className="product-card-container">
-        <div className="product-card">
-          <img src="../../src/assets/hero.webp" className="product-image" />
+        {productsPreview.map((product) => {
+          return (
+            <div className="product-card" key={product.id}>
+              <div className="product-image-container">
+                <img className="product-image" src={product.image} />
+              </div>
 
-          <div className="product-info-container">
-            <div className="product-info">
-              <div className="product-category">Men's Shirt</div>
-              <div className="product-name">Striped knit shirt</div>
-              <div className="product-price">$50.00</div>
+              <div className="product-info-container">
+                <div className="product-info">
+                  <div className="product-category">{product.category}</div>
+                  <div className="product-name">{product.title}</div>
+                  <div className="product-price">${product.price}</div>
+                </div>
+
+                <div>
+                  <button className="cart-button">
+                    <img
+                      src="../src/assets/shopping-cart-black.svg"
+                      className="cart-button-black"
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
-
-            <div>
-              <button className="cart-button">
-                <img
-                  src="../src/assets/shopping-cart-black.svg"
-                  className="cart-button-black"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="product-card">
-          <img src="../../src/assets/hero.webp" className="product-image" />
-
-          <div className="product-info-container">
-            <div className="product-info">
-              <div className="product-category">Men's Shirt</div>
-              <div className="product-name">Striped knit shirt</div>
-              <div className="product-price">$50.00</div>
-            </div>
-
-            <div>
-              <button className="cart-button">
-                <img
-                  src="../src/assets/shopping-cart-black.svg"
-                  className="cart-button-black"
-                />
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="product-card"></div>
-        <div className="product-card"></div>
-        <div className="product-card"></div>
-        <div className="product-card"></div>
-        <div className="product-card"></div>
-        <div className="product-card"></div>
-        <div className="product-card"></div>
-        <div className="product-card"></div>
+          );
+        })}
       </div>
     </div>
   );

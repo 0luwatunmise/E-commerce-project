@@ -59,9 +59,37 @@
   padding: 10px;
   border-radius: 8px;
 }
-.icon {
-  width: 18px;
+.search-icon, .cart-icon {
+  width: 20px;
   cursor: pointer;
+}
+.cart-icon{
+  margin-top: 5px;
+}
+
+.cart-icon-container{
+  position: relative;
+  width: 25px;
+  height: 30px;
+}
+
+.cart-quantity{
+  display: flex;
+  position: absolute;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: brown;
+  color: white;
+  width: 15px;
+  height: 15px;
+  border-radius: 8px;
+  
+
 }
 
 @media (max-width: 700px) {

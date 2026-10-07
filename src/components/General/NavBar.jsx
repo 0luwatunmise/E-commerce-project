@@ -6,9 +6,9 @@ export default function NavBar() {
     <>
       <div className="nav-bar">
         <div className="nav-bar-left">
-            <Link to="/">Home</Link>
-            <Link to="/products">Products</Link>
-            <a>About us</a>
+          <Link to="/">Home</Link>
+          <Link to="/products">Products</Link>
+          <a>About us</a>
         </div>
 
         <div className="nav-bar-center">HELLIOS</div>
@@ -19,11 +19,22 @@ export default function NavBar() {
               className="search-input"
               placeholder="what are you looking for?"
             />
-            <img src="../src/assets/search.svg" className="icon" />
+            <img src="../src/assets/search.svg" className="search-icon" />
           </div>
-          <Link to="/cart">
-            <img src="../src/assets/shopping-cart.svg" className="icon" />
-          </Link>
+
+          <div>
+
+            <div className="cart-icon-container">
+              <Link to="/cart">
+                <img
+                  src="../src/assets/shopping-cart.svg"
+                  className="cart-icon"
+                />
+              </Link>
+              <div className="cart-quantity">3</div>
+            </div>
+            
+          </div>
         </div>
       </div>
     </>
