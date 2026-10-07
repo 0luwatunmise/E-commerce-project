@@ -1,7 +1,7 @@
 import NavBar from "../General/NavBar";
 import "./ProductsPage.css";
 
-export default function ProductsPage() {
+export default function ProductsPage({products}) {
   return (
     <div className="products-page-container">
       <NavBar />
@@ -11,163 +11,38 @@ export default function ProductsPage() {
         <div className="product-categories">
           <p>MEN</p>
           <p>WOMEN</p>
-          <p>SHOES</p>
-          <p>CLOTHES</p>
+          <p>ELECTRONICS</p>
+          <p>JEWELERY</p>
         </div>
       </div>
 
       <div className="products-grid">
-        <div className="product-card">
+        {products.map((product)=>{
+          return (
+            <div className="product-card" key={product.id}>
+              <div className="product-image-container">
+                <img className="product-image" src={product.image} />
+              </div>
 
-          
-            <img src="../../src/assets/hero.webp" className="product-image" />
-          
+              <div className="product-info-container">
+                <div className="product-info">
+                  <div className="product-category">{product.category}</div>
+                  <div className="product-name">{product.title}</div>
+                  <div className="product-price">${product.price}</div>
+                </div>
 
-          <div className="product-info-container">
-            <div className="product-info">
-              <div className="product-category">Men's Shirt</div>
-              <div className="product-name">Striped knit shirt</div>
-              <div className="product-price">$50.00</div>
+                <div>
+                  <button className="cart-button">
+                    <img
+                      src="../src/assets/shopping-cart-black.svg"
+                      className="cart-button-black"
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
-
-            <div>
-              <button className="cart-button">
-                <img
-                  src="../src/assets/shopping-cart-black.svg"
-                  className="cart-button-black"
-                />
-              </button>
-
-            </div>
-          </div>
-        </div>
-
-        <div className="product-card">
-
-          
-            <img src="../../src/assets/hero.webp" className="product-image" />
-          
-
-          <div className="product-info-container">
-            <div className="product-info">
-              <div className="product-category">Men's Shirt</div>
-              <div className="product-name">Striped knit shirt</div>
-              <div className="product-price">$50.00</div>
-            </div>
-
-            <div>
-              <button className="cart-button">
-                <img
-                  src="../src/assets/shopping-cart-black.svg"
-                  className="cart-button-black"
-                />
-              </button>
-
-            </div>
-          </div>
-        </div>
-
-        <div className="product-card">
-
-          
-            <img src="../../src/assets/hero.webp" className="product-image" />
-          
-
-          <div className="product-info-container">
-            <div className="product-info">
-              <div className="product-category">Men's Shirt</div>
-              <div className="product-name">Striped knit shirt</div>
-              <div className="product-price">$50.00</div>
-            </div>
-
-            <div>
-              <button className="cart-button">
-                <img
-                  src="../src/assets/shopping-cart-black.svg"
-                  className="cart-button-black"
-                />
-              </button>
-
-            </div>
-          </div>
-        </div>
-
-        <div className="product-card">
-
-          
-            <img src="../../src/assets/hero.webp" className="product-image" />
-          
-
-          <div className="product-info-container">
-            <div className="product-info">
-              <div className="product-category">Men's Shirt</div>
-              <div className="product-name">Striped knit shirt</div>
-              <div className="product-price">$50.00</div>
-            </div>
-
-            <div>
-              <button className="cart-button">
-                <img
-                  src="../src/assets/shopping-cart-black.svg"
-                  className="cart-button-black"
-                />
-              </button>
-
-            </div>
-          </div>
-        </div>
-
-        <div className="product-card">
-
-          
-            <img src="../../src/assets/hero.webp" className="product-image" />
-          
-
-          <div className="product-info-container">
-            <div className="product-info">
-              <div className="product-category">Men's Shirt</div>
-              <div className="product-name">Striped knit shirt</div>
-              <div className="product-price">$50.00</div>
-            </div>
-
-            <div>
-              <button className="cart-button">
-                <img
-                  src="../src/assets/shopping-cart-black.svg"
-                  className="cart-button-black"
-                />
-              </button>
-
-            </div>
-          </div>
-        </div>
-
-        <div className="product-card">
-
-          
-            <img src="../../src/assets/hero.webp" className="product-image" />
-          
-
-          <div className="product-info-container">
-            <div className="product-info">
-              <div className="product-category">Men's Shirt</div>
-              <div className="product-name">Striped knit shirt</div>
-              <div className="product-price">$50.00</div>
-            </div>
-
-            <div>
-              <button className="cart-button">
-                <img
-                  src="../src/assets/shopping-cart-black.svg"
-                  className="cart-button-black"
-                />
-              </button>
-
-            </div>
-          </div>
-        </div>
-
-
+          )
+        })}
       </div>
     </div>
   );
