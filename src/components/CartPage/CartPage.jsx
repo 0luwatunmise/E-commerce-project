@@ -1,7 +1,7 @@
 import "./CartPage.css";
 import { Link } from "react-router-dom";
 
-export default function CartPage() {
+export default function CartPage({ cart }) {
   return (
     <div className="cart-page-container">
       <div>
@@ -21,101 +21,41 @@ export default function CartPage() {
               <label></label>
             </div>
 
-            <div className="order-summary-body">
-              <div className="order-product-info">
-                <div className="order-image-container">
-                  <img
-                    src="../../src/assets/hero.webp"
-                    className="order-image"
-                  />
+            {cart.map((cartItem) => {
+              return (
+                <div className="order-summary-body">
+                  <div className="order-product-info">
+                    <div className="order-image-container">
+                      <img
+                        src={cartItem.image}
+                        className="order-image"
+                      />
+                    </div>
+
+                    <div className="order-desc">
+                      <div className="order-name">{cartItem.title}</div>
+                      <div className="order-category">{cartItem.category}</div>
+                    </div>
+                  </div>
+
+                  <div class="quantity">
+                    <button type="button" aria-label="Increase quantity">
+                      +
+                    </button>
+                    <span>{cartItem.quantity}</span>
+                    <button type="button" aria-label="Decrease quantity">
+                      &minus;
+                    </button>
+                  </div>
+
+                  <label className="cart-price">{(cartItem.price).toFixed(2)}</label>
+
+                  <button className="delete-order-btn">
+                    <img src="../../src/assets/trash.svg" />
+                  </button>
                 </div>
-
-                <div className="order-desc">
-                  <div className="order-name">Striped knit shirt</div>
-                  <div className="order-category">Men's Clothing</div>
-                </div>
-              </div>
-
-              <div class="quantity">
-                <button type="button" aria-label="Increase quantity">
-                  +
-                </button>
-                <span>4</span>
-                <button type="button" aria-label="Decrease quantity">
-                  &minus;
-                </button>
-              </div>
-
-              <label className="cart-price">$100</label>
-
-              <button className="delete-order-btn">
-                <img src="../../src/assets/trash.svg" />
-              </button>
-            </div>
-
-            <div className="order-summary-body">
-              <div className="order-product-info">
-                <div className="order-image-container">
-                  <img
-                    src="../../src/assets/hero.webp"
-                    className="order-image"
-                  />
-                </div>
-
-                <div className="order-desc">
-                  <div className="order-name">Striped knit shirt</div>
-                  <div className="order-category">Men's Clothing</div>
-                </div>
-              </div>
-
-              <div class="quantity">
-                <button type="button" aria-label="Increase quantity">
-                  +
-                </button>
-                <span>4</span>
-                <button type="button" aria-label="Decrease quantity">
-                  &minus;
-                </button>
-              </div>
-
-              <label className="cart-price">$100</label>
-
-              <button className="delete-order-btn">
-                <img src="../../src/assets/trash.svg" />
-              </button>
-            </div>
-
-            <div className="order-summary-body">
-              <div className="order-product-info">
-                <div className="order-image-container">
-                  <img
-                    src="../../src/assets/hero.webp"
-                    className="order-image"
-                  />
-                </div>
-
-                <div className="order-desc">
-                  <div className="order-name">Striped knit shirt</div>
-                  <div className="order-category">Men's Clothing</div>
-                </div>
-              </div>
-
-              <div class="quantity">
-                <button type="button" aria-label="Increase quantity">
-                  +
-                </button>
-                <span>4</span>
-                <button type="button" aria-label="Decrease quantity">
-                  &minus;
-                </button>
-              </div>
-
-              <label className="cart-price">$100</label>
-
-              <button className="delete-order-btn">
-                <img src="../../src/assets/trash.svg" />
-              </button>
-            </div>
+              );
+            })}
           </div>
 
           <button className="update-cart-btn">Update Cart</button>

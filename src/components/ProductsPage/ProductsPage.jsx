@@ -1,10 +1,10 @@
 import NavBar from "../General/NavBar";
 import "./ProductsPage.css";
 
-export default function ProductsPage({products}) {
+export default function ProductsPage({ products, addToCart, cartQuantity }) {
   return (
     <div className="products-page-container">
-      <NavBar />
+      <NavBar cartQuantity={cartQuantity}/>
 
       <div className="products-header-container">
         <div className="products-header">New Arrivals</div>
@@ -17,7 +17,7 @@ export default function ProductsPage({products}) {
       </div>
 
       <div className="products-grid">
-        {products.map((product)=>{
+        {products.map((product) => {
           return (
             <div className="product-card" key={product.id}>
               <div className="product-image-container">
@@ -32,7 +32,12 @@ export default function ProductsPage({products}) {
                 </div>
 
                 <div>
-                  <button className="cart-button">
+                  <button
+                    className="cart-button"
+                    onClick={() => {
+                      addToCart(product.id);
+                    }}
+                  >
                     <img
                       src="../src/assets/shopping-cart-black.svg"
                       className="cart-button-black"
@@ -41,7 +46,7 @@ export default function ProductsPage({products}) {
                 </div>
               </div>
             </div>
-          )
+          );
         })}
       </div>
     </div>

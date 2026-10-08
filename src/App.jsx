@@ -56,19 +56,36 @@ function App() {
     console.log(cart);
   }
 
+  let cartQuantity = 0
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
   return (
     <div className="app">
       <BrowserRouter>
         <Routes>
           <Route
             path="/"
-            element={<Homepage products={products} addToCart={addToCart} />}
+            element={
+              <Homepage
+                products={products}
+                addToCart={addToCart}
+                cartQuantity={cartQuantity}
+              />
+            }
           />
           <Route
             path="/products"
-            element={<ProductsPage products={products} />}
+            element={
+              <ProductsPage
+                products={products}
+                addToCart={addToCart}
+                cartQuantity={cartQuantity}
+              />
+            }
           />
-          <Route path="/cart" element={<CartPage cart={cart}/>} />
+          <Route path="/cart" element={<CartPage cart={cart} />} />
         </Routes>
       </BrowserRouter>
     </div>
