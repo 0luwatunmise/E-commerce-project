@@ -28,25 +28,32 @@ export default function CartPage({ cart, setCart }) {
     });
   }
 
-  function deleteCartItem(id){
-    setCart((prevCart)=>{
-      return prevCart.filter((cartItem)=>
-        cartItem.id !== id
-      )
-    })
+  function deleteCartItem(id) {
+    setCart((prevCart) => {
+      return prevCart.filter((cartItem) => cartItem.id !== id);
+    });
   }
+
+  let subTotal = 0;
+  cart.forEach((cartItem) => {
+    subTotal += cartItem.quantity * cartItem.price;
+  });
+  const taxPrice = subTotal * 0.1
+  const deliveryPrice = 15
+  const totalPrice = subTotal + taxPrice + deliveryPrice
 
   return (
     <div className="cart-page-container">
       <div>
-        <Link to="/">
-          <div className="cart-brand-name">HELLIOS</div>
+        <Link to="/products">
+          <div className="cont-shopping">Continue Shopping</div>
         </Link>
+
         <div className="shopping-cart">Shopping Cart</div>
       </div>
 
       <div className="cart-container">
-        <div>
+        
           <div className="order-summary-container">
             <div className="order-summary-header">
               <label className="product">Product Info</label>
@@ -64,7 +71,7 @@ export default function CartPage({ cart, setCart }) {
                     </div>
 
                     <div className="order-desc">
-                      <div className="order-name">{cartItem.title}</div>
+                      <div className="order-name">{cartItem.name}</div>
                       <div className="order-category">{cartItem.category}</div>
                     </div>
                   </div>
@@ -78,16 +85,27 @@ export default function CartPage({ cart, setCart }) {
                       +
                     </button>
                     <span>{cartItem.quantity}</span>
-                    <button type="button" aria-label="Decrease quantity" onClick={()=>{decreaseItemQuantity(cartItem.id)}}>
+                    <button
+                      type="button"
+                      aria-label="Decrease quantity"
+                      onClick={() => {
+                        decreaseItemQuantity(cartItem.id);
+                      }}
+                    >
                       &minus;
                     </button>
                   </div>
 
                   <label className="cart-price">
-                    {cartItem.price.toFixed(2)}
+                    {(cartItem.price * cartItem.quantity).toFixed(2)}
                   </label>
 
-                  <button className="delete-order-btn" onClick={()=>{deleteCartItem(cartItem.id)}}>
+                  <button
+                    className="delete-order-btn"
+                    onClick={() => {
+                      deleteCartItem(cartItem.id);
+                    }}
+                  >
                     <img src="../../src/assets/trash.svg" />
                   </button>
                 </div>
@@ -95,8 +113,8 @@ export default function CartPage({ cart, setCart }) {
             })}
           </div>
 
-          <button className="update-cart-btn">Update Cart</button>
-        </div>
+        
+        
 
         <div>
           <div className="payment-summary-container">
@@ -106,16 +124,19 @@ export default function CartPage({ cart, setCart }) {
 
             <div className="payment-summary-body">
               <label className="summary-text">Sub Total</label>{" "}
-              <label className="summary-price"> $ 2000</label>
+              <label className="summary-price">
+                {" "}
+                $ {Math.round(subTotal).toFixed(2)}
+              </label>
               <label className="summary-text">Tax(10%)</label>{" "}
-              <label className="summary-price"> $ 200</label>
+              <label className="summary-price"> $ {Math.round(taxPrice).toFixed(2)}</label>
               <label className="summary-text">Delivery </label>{" "}
-              <label className="summary-price"> $ 15</label>
+              <label className="summary-price"> $ {deliveryPrice}</label>
             </div>
 
             <div className="payment-summary-total">
               <label className="summary-total">Total</label>{" "}
-              <label className="summary-total-price">$ 2215</label>
+              <label className="summary-total-price">$ {Math.round(totalPrice).toFixed(2)}</label>
             </div>
           </div>
 

@@ -11,12 +11,20 @@
   align-items: center;
   justify-content: space-between;
 }
-.cart-brand-name {
-  font-size: 18px;
+.cont-shopping {
+  font-size: 15px;
   letter-spacing: -0.8px;
   font-weight: 500;
   margin-bottom: 20px;
+  display: inline-block;
 }
+.cont-shopping:hover{
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}
+
+
 .shopping-cart {
   font-size: 25px;
   letter-spacing: -0.5px;
@@ -135,19 +143,6 @@
 .delete-order-btn {
   border: none;
   background-color: transparent;
-  cursor: pointer;
-}
-
-.update-cart-btn {
-  width: 200px;
-  padding: 15px 20px 15px 20px;
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 500;
-  font-family: montserrat;
-  border: none;
-  background-color: black;
-  color: whitesmoke;
   cursor: pointer;
 }
 
