@@ -25,16 +25,50 @@ function App() {
     getProductsData();
   }, []);
 
+  const [cart, setCart] = useState([]);
+
+  function addToCart(id) {
+    const selectedProduct = products.find((product) => product.id === id);
+
+    if (!selectedProduct) return;
+
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === id);
+
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+        );
+      }
+
+      return [
+        ...prevCart,
+        {
+          id: selectedProduct.id,
+          name: selectedProduct.title,
+          category: selectedProduct.category,
+          image: selectedProduct.image,
+          price: selectedProduct.price,
+          quantity: 1,
+        },
+      ];
+    });
+    console.log(cart);
+  }
+
   return (
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Homepage products={products} />} />
+          <Route
+            path="/"
+            element={<Homepage products={products} addToCart={addToCart} />}
+          />
           <Route
             path="/products"
             element={<ProductsPage products={products} />}
           />
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart" element={<CartPage cart={cart}/>} />
         </Routes>
       </BrowserRouter>
     </div>
