@@ -28,7 +28,7 @@ A frontend e-commerce web app built with **React**, created as a hands-on projec
 
 ```bash
 # Clone the repository
-git clone .https://github.com/0luwatunmise/E-commerce-project.git
+git clone https://github.com/0luwatunmise/E-commerce-project.git
 
 # Move into the project folder
 cd E-commerce-project
