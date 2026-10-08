@@ -135,6 +135,7 @@
 .delete-order-btn {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .update-cart-btn {

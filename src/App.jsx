@@ -25,7 +25,16 @@ function App() {
     getProductsData();
   }, []);
 
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || [],
+  );
+
+  useEffect(() => {
+    const saveCart = () => {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    };
+    saveCart();
+  }, [cart]);
 
   function addToCart(id) {
     const selectedProduct = products.find((product) => product.id === id);
@@ -55,7 +64,7 @@ function App() {
     });
   }
 
-  let cartQuantity = 0
+  let cartQuantity = 0;
   cart.forEach((cartItem) => {
     cartQuantity += cartItem.quantity;
   });
@@ -84,7 +93,10 @@ function App() {
               />
             }
           />
-          <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
+          <Route
+            path="/cart"
+            element={<CartPage cart={cart} setCart={setCart} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

@@ -15,10 +15,10 @@ export default function CartPage({ cart, setCart }) {
     });
   }
 
-    function deccreaseItemQuantity(id) {
+  function decreaseItemQuantity(id) {
     setCart((prevCart) => {
       return prevCart.map((cartItem) =>
-        cartItem.id === id
+        cartItem.id === id && cartItem.quantity > 1
           ? {
               ...cartItem,
               quantity: cartItem.quantity - 1,
@@ -26,6 +26,14 @@ export default function CartPage({ cart, setCart }) {
           : cartItem,
       );
     });
+  }
+
+  function deleteCartItem(id){
+    setCart((prevCart)=>{
+      return prevCart.filter((cartItem)=>
+        cartItem.id !== id
+      )
+    })
   }
 
   return (
@@ -70,7 +78,7 @@ export default function CartPage({ cart, setCart }) {
                       +
                     </button>
                     <span>{cartItem.quantity}</span>
-                    <button type="button" aria-label="Decrease quantity" onClick={()=>{deccreaseItemQuantity(cartItem.id)}}>
+                    <button type="button" aria-label="Decrease quantity" onClick={()=>{decreaseItemQuantity(cartItem.id)}}>
                       &minus;
                     </button>
                   </div>
@@ -79,7 +87,7 @@ export default function CartPage({ cart, setCart }) {
                     {cartItem.price.toFixed(2)}
                   </label>
 
-                  <button className="delete-order-btn">
+                  <button className="delete-order-btn" onClick={()=>{deleteCartItem(cartItem.id)}}>
                     <img src="../../src/assets/trash.svg" />
                   </button>
                 </div>
