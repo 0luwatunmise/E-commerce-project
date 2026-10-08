@@ -53,7 +53,6 @@ function App() {
         },
       ];
     });
-    console.log(cart);
   }
 
   let cartQuantity = 0
@@ -85,7 +84,7 @@ function App() {
               />
             }
           />
-          <Route path="/cart" element={<CartPage cart={cart} />} />
+          <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
         </Routes>
       </BrowserRouter>
     </div>
