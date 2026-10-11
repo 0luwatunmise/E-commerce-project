@@ -1,0 +1,50 @@
+.error-page {
+  min-height: 80vh;
+  font-family: montserrat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.error-code {
+  font-size: 65px;
+  margin: 0;
+  color: #e63946;
+}
+
+.error-title {
+  margin: 8px 0;
+}
+
+.error-message {
+  color: #666;
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.error-btn, .error-btn.primary {
+  padding: 15px 20px ;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 20px;
+  font-family: montserrat;
+  border: none;
+  background-color: black;
+  color: whitesmoke;
+  cursor: pointer;
+}
+.error-btn {
+  color: black;
+  background-color: white ;
+  border: solid;
+  border-width: 1px;
+}

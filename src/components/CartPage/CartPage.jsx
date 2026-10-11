@@ -56,65 +56,76 @@ export default function CartPage({ cart, setCart }) {
           </div>
 
           <div className="cart-container">
-            <div className="order-summary-container">
-              <div className="order-summary-header">
-                <label className="product">Product Info</label>
-                <label>Quantity</label>
-                <label>Price</label>
-                <label></label>
-              </div>
+            <div>
+              <div className="order-summary-container">
+                <div className="order-summary-header">
+                  <label className="product">Product Info</label>
+                  <label>Quantity</label>
+                  <label>Price</label>
+                  <label></label>
+                </div>
 
-              {cart.map((cartItem) => {
-                return (
-                  <div className="order-summary-body" key={cartItem.id}>
-                    <div className="order-product-info">
-                      <div className="order-image-container">
-                        <img src={cartItem.image} className="order-image" />
-                      </div>
+                {cart.map((cartItem) => {
+                  return (
+                    <div className="order-summary-body" key={cartItem.id}>
+                      <div className="order-product-info">
+                        <div className="order-image-container">
+                          <img src={cartItem.image} className="order-image" />
+                        </div>
 
-                      <div className="order-desc">
-                        <div className="order-name">{cartItem.name}</div>
-                        <div className="order-category">
-                          {cartItem.category}
+                        <div className="order-desc">
+                          <div className="order-name">{cartItem.name}</div>
+                          <div className="order-category">
+                            {cartItem.category}
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <div class="quantity">
+                      <div class="quantity">
+                        <button
+                          type="button"
+                          aria-label="Increase quantity"
+                          onClick={() => increaseItemQuantity(cartItem.id)}
+                        >
+                          +
+                        </button>
+                        <span>{cartItem.quantity}</span>
+                        <button
+                          type="button"
+                          aria-label="Decrease quantity"
+                          onClick={() => {
+                            decreaseItemQuantity(cartItem.id);
+                          }}
+                        >
+                          &minus;
+                        </button>
+                      </div>
+
+                      <label className="cart-price">
+                        {(cartItem.price * cartItem.quantity).toFixed(2)}
+                      </label>
+
                       <button
-                        type="button"
-                        aria-label="Increase quantity"
-                        onClick={() => increaseItemQuantity(cartItem.id)}
-                      >
-                        +
-                      </button>
-                      <span>{cartItem.quantity}</span>
-                      <button
-                        type="button"
-                        aria-label="Decrease quantity"
+                        className="delete-order-btn"
                         onClick={() => {
-                          decreaseItemQuantity(cartItem.id);
+                          deleteCartItem(cartItem.id);
                         }}
                       >
-                        &minus;
+                        <img src="../../src/assets/trash.svg" />
                       </button>
                     </div>
+                  );
+                })}
+              </div>
 
-                    <label className="cart-price">
-                      {(cartItem.price * cartItem.quantity).toFixed(2)}
-                    </label>
-
-                    <button
-                      className="delete-order-btn"
-                      onClick={() => {
-                        deleteCartItem(cartItem.id);
-                      }}
-                    >
-                      <img src="../../src/assets/trash.svg" />
-                    </button>
-                  </div>
-                );
-              })}
+              <button
+                className="btn-type2"
+                onClick={() => {
+                  setCart([]);
+                }}
+              >
+                Clear Cart
+              </button>
             </div>
 
             <div>
@@ -146,17 +157,18 @@ export default function CartPage({ cart, setCart }) {
                 </div>
               </div>
 
-              <button className="checkout-btn"> CheckOut </button>
+              <button className="btn-type2"> CheckOut </button>
             </div>
           </div>
         </div>
       ) : (
         <div className="cart-page">
-
           <div className="cart-title">Shopping Cart</div>
 
           <div className="empty-cart">
-            <div className="empty-icon"><TiShoppingCart /></div>
+            <div className="empty-icon">
+              <TiShoppingCart />
+            </div>
             <h2>Your cart is empty</h2>
             <p>Looks like you haven't added anything yet.</p>
             <Link to="/" className="shop-btn">
