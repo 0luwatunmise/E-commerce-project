@@ -71,3 +71,5 @@ Then open the local URL shown in your terminal (usually `http://localhost:5173` 
 ##  License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+##  View live demo @https://e-commerce-project-eta-bice.vercel.app/
