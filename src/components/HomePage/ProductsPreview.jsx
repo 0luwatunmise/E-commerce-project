@@ -1,10 +1,9 @@
 import "./ProductsPreview.css";
+import { FcCheckmark } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
-export default function ProductsPreview({ products, addToCart }) {
+export default function ProductsPreview({ products, addToCart, clicked }) {
   const productsPreview = products.slice(0, 8);
-
-
 
   return (
     <div className="preview-products-container">
@@ -26,15 +25,30 @@ export default function ProductsPreview({ products, addToCart }) {
                 <div className="product-info">
                   <div className="product-category">{product.category}</div>
                   <div className="product-name">{product.title}</div>
-                  <div className="product-price">${(product.price).toFixed(2)}</div>
+                  <div className="product-price">
+                    ${product.price.toFixed(2)}
+                  </div>
                 </div>
 
                 <div>
-                  <button className="cart-button" onClick={()=>{addToCart(product.id)}}>
-                    <img
-                      src="../src/assets/shopping-cart-black.svg"
-                      className="cart-button-black"
-                    />
+                  <button
+                    className={
+                      clicked === product.id
+                        ? "cart-button-added"
+                        : "cart-button"
+                    }
+                    onClick={() => {
+                      addToCart(product.id);
+                    }}
+                  >
+                    {clicked === product.id ? (
+                      <FcCheckmark />
+                    ) : (
+                      <img
+                        src="../src/assets/shopping-cart-black.svg"
+                        className="cart-button-black"
+                      />
+                    )}
                   </button>
                 </div>
               </div>

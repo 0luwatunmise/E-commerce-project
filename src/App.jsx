@@ -36,10 +36,17 @@ function App() {
     saveCart();
   }, [cart]);
 
+  const [clicked, setClicked] = useState(null);
+
   function addToCart(id) {
     const selectedProduct = products.find((product) => product.id === id);
-
     if (!selectedProduct) return;
+
+    setClicked(id);
+
+    setTimeout(() => {
+      setClicked(null);
+    }, 1000);
 
     setCart((prevCart) => {
       const existingItem = prevCart.find((item) => item.id === id);
@@ -80,6 +87,7 @@ function App() {
                 products={products}
                 addToCart={addToCart}
                 cartQuantity={cartQuantity}
+                clicked={clicked}
               />
             }
           />
@@ -90,6 +98,7 @@ function App() {
                 products={products}
                 addToCart={addToCart}
                 cartQuantity={cartQuantity}
+                clicked={clicked}
               />
             }
           />
