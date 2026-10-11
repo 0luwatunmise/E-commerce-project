@@ -3,7 +3,7 @@
 A frontend e-commerce web app built with **React**, created as a hands-on project to deepen my frontend development skills. Product data is fetched live from the [FakeStore API](https://fakestoreapi.com).
 
 
-## ✨ Features
+##  Features
 
 - **Home page** with a product preview showing the first 8 products
 - **Products page** with a responsive product grid
@@ -11,13 +11,13 @@ A frontend e-commerce web app built with **React**, created as a hands-on projec
 - **Custom UI** styled with plain HTML and CSS
 - **cart button** when hovering products in the products preview and on the products page
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 | UI | React |
 | Data fetching | Axios, FakeStore API |
 | Styling | HTML, CSS |
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -44,11 +44,11 @@ Then open the local URL shown in your terminal (usually `http://localhost:5173` 
 
 > If your project uses Create React App, run `npm start` instead of `npm run dev`.
 
-## 📌 Project Status
+##  Project Status
 
-🚧 **In progress.** The UI is complete, products load from the API, and the home and products pages are working.
+ **In progress.** The UI is complete, products load from the API, and the home and products pages are working.
 
-## 🗺️ Roadmap
+##  Roadmap
 
 - [x] Set up app UI
 - [x] Fetch products from FakeStore API with Axios
@@ -64,10 +64,10 @@ Then open the local URL shown in your terminal (usually `http://localhost:5173` 
 - [ ] About Page
 - [ ] Checkout and tracking page
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 - Product data from [FakeStore API](https://fakestoreapi.com)
 
-## 📄 License
+##  License
 
 This project is open source and available under the [MIT License](LICENSE).
