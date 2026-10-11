@@ -9,7 +9,7 @@ A frontend e-commerce web app built with **React**, created as a hands-on projec
 - **Products page** with a responsive product grid
 - **Live product data** fetched from the FakeStore API using Axios and `async/await`
 - **Custom UI** styled with plain HTML and CSS
-- **cart button** when hovering products in the products preview and on the products page (button state change in progress)
+- **cart button** when hovering products in the products preview and on the products page
 
 ## 🧰 Tech Stack
 
@@ -46,20 +46,21 @@ Then open the local URL shown in your terminal (usually `http://localhost:5173` 
 
 ## 📌 Project Status
 
-🚧 **In progress.** The UI is complete, products load from the API, and the home and products pages are working. The add-to-cart interaction is currently being built.
+🚧 **In progress.** The UI is complete, products load from the API, and the home and products pages are working.
 
 ## 🗺️ Roadmap
 
 - [x] Set up app UI
 - [x] Fetch products from FakeStore API with Axios
-- [x] Home page product preview (first 10 products)
+- [x] Home page product preview (first 8 products)
 - [x] Products page grid
 - [x] Add-to-cart button 
 - [x] Cart page
-- [ ] Add-to-cart button state change
+- [x] cart button state change
+- [x] Error Page
+- [ ] Search and category filtering
 - [ ] Product details page
 - [ ] About Page
-- [ ] Search and category filtering
 - [ ] Checkout and tracking page
 
 ## 🙏 Acknowledgements
