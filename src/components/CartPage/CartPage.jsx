@@ -1,6 +1,7 @@
 import "./CartPage.css";
 import { Link } from "react-router-dom";
 import { TiShoppingCart } from "react-icons/ti";
+import deleteIcon from '../../assets/trash.svg'
 
 export default function CartPage({ cart, setCart }) {
   function increaseItemQuantity(id) {
@@ -111,7 +112,7 @@ export default function CartPage({ cart, setCart }) {
                           deleteCartItem(cartItem.id);
                         }}
                       >
-                        <img src="../../src/assets/trash.svg" />
+                        <img src= {deleteIcon} />
                       </button>
                     </div>
                   );
