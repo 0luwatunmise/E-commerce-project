@@ -77,6 +77,14 @@ function App() {
     cartQuantity += cartItem.quantity;
   });
 
+  const [filteredProducts, setFilteredProducts] = useState(null)
+  function filterProducts(category) {
+    const filteredProducts = products.filter((product) =>
+      product.category.toLowerCase() === category,
+    );
+   setFilteredProducts(filteredProducts)
+  }
+
   return (
     <div className="app">
       <BrowserRouter>
@@ -100,6 +108,9 @@ function App() {
                 addToCart={addToCart}
                 cartQuantity={cartQuantity}
                 clicked={clicked}
+                filterProducts={filterProducts}
+                filteredProducts={filteredProducts}
+                setFilteredProducts={setFilteredProducts}
               />
             }
           />

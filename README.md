@@ -56,9 +56,10 @@ Then open the local URL shown in your terminal (usually `http://localhost:5173` 
 - [x] Products page grid
 - [x] Add-to-cart button 
 - [x] Cart page
-- [x] cart button state change
+- [x] Cart button state change
 - [x] Error Page
-- [ ] Search and category filtering
+- [x] Product category filtering
+- [ ] Search filtering 
 - [ ] Product details page
 - [ ] About Page
 - [ ] Checkout and tracking page

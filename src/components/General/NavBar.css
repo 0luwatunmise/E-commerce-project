@@ -24,7 +24,12 @@
 }
 .nav-bar-left a {
   color: inherit;
-  text-decoration: none;
+}
+
+.nav-link-active{
+  text-decoration: underline;
+   text-underline-offset: 3px;
+   text-decoration-thickness: 1px;
 }
 
 .nav-bar-center {

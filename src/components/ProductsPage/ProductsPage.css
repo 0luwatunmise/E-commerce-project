@@ -4,7 +4,6 @@
   flex-direction: column;
   padding-left: 25px;
   padding-right: 25px;
-  
 }
 
 .products-header-container {
@@ -27,12 +26,25 @@
   display: flex;
   font-family: montserrat;
   gap: 20px;
-  font-size: 12px;
-  
 }
-.product-categories p {
+.category-btn {
   cursor: pointer;
+  font-size: 12px;
   margin: 0px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: #bdbdbd;
+  transition: color 0.2s;
+}
+.category-btn:hover {
+  color: #666;
+}
+
+.category-btn.active {
+  font-weight: 700;
+  color: black;
+  border-bottom: 1px solid black;
+  padding-bottom: 2px;
 }
 
 @media (max-width: 700px) {
@@ -40,7 +52,6 @@
     padding-left: 150px;
   }
 }
-
 
 .products-grid {
   display: grid;
@@ -51,4 +62,3 @@
 .products-grid .product-card {
   height: 350px;
 }
-
