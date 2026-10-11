@@ -1,5 +1,6 @@
 import NavBar from "../General/NavBar";
 import { FcCheckmark } from "react-icons/fc";
+import cartIcon from '../../assets/shopping-cart-black.svg'
 import { useState } from "react";
 import "./ProductsPage.css";
 
@@ -116,7 +117,7 @@ export default function ProductsPage({
                           <FcCheckmark />
                         ) : (
                           <img
-                            src="../src/assets/shopping-cart-black.svg"
+                            src={cartIcon}
                             className="cart-button-black"
                           />
                         )}
@@ -155,7 +156,7 @@ export default function ProductsPage({
                           <FcCheckmark />
                         ) : (
                           <img
-                            src="../src/assets/shopping-cart-black.svg"
+                            src={cartIcon}
                             className="cart-button-black"
                           />
                         )}

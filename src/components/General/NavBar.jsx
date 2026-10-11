@@ -1,5 +1,9 @@
 import "./NavBar.css";
 import { NavLink } from "react-router-dom";
+import searchIcon from '../../assets/search.svg'
+import cartIcon from '../../assets/shopping-cart.svg'
+
+
 
 export default function NavBar({ cartQuantity }) {
   return (
@@ -29,14 +33,14 @@ export default function NavBar({ cartQuantity }) {
               className="search-input"
               placeholder="what are you looking for?"
             />
-            <img src="../src/assets/search.svg" className="search-icon" />
+            <img src={searchIcon} className="search-icon" />
           </div>
 
           <div>
             <div className="cart-icon-container">
               <NavLink to="/cart">
                 <img
-                  src="../src/assets/shopping-cart.svg"
+                  src={cartIcon}
                   className="cart-icon"
                 />
               </NavLink>

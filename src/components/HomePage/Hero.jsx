@@ -1,4 +1,5 @@
 import "./Hero.css";
+import hero from '../../assets/hero.webp'
 import { Link } from "react-router-dom";
 
 export default function Hero() {
@@ -14,7 +15,7 @@ export default function Hero() {
         </Link>
 
         <img
-          src="../src/assets/hero.webp"
+          src={hero}
           alt="clothes on a hanger"
           fetchPriority="high"
           loading="eager"

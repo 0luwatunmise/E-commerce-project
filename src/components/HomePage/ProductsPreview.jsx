@@ -1,5 +1,6 @@
 import "./ProductsPreview.css";
 import { FcCheckmark } from "react-icons/fc";
+import cartIcon from '../../assets/shopping-cart-black.svg'
 import { Link } from "react-router-dom";
 
 export default function ProductsPreview({ products, addToCart, clicked }) {
@@ -45,7 +46,7 @@ export default function ProductsPreview({ products, addToCart, clicked }) {
                       <FcCheckmark />
                     ) : (
                       <img
-                        src="../src/assets/shopping-cart-black.svg"
+                        src={cartIcon}
                         className="cart-button-black"
                       />
                     )}
