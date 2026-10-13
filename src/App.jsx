@@ -7,6 +7,7 @@ import ProductsPage from "./components/ProductsPage/ProductsPage";
 import CartPage from "./components/CartPage/CartPage";
 import fallbackProducts from "./data/products.json";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -120,6 +121,7 @@ function App() {
           />
 
           <Route path="*" element={<ErrorPage />} />
+          <Route path="/productDetails" element={<ProductDetails />} />
         </Routes>
       </BrowserRouter>
     </div>
