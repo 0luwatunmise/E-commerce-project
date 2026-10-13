@@ -121,7 +121,7 @@ function App() {
           />
 
           <Route path="*" element={<ErrorPage />} />
-          <Route path="/productDetails" element={<ProductDetails />} />
+          <Route path="/products/:id" element={<ProductDetails products={products} addToCart={addToCart} cartQuantity={cartQuantity}/>} />
         </Routes>
       </BrowserRouter>
     </div>

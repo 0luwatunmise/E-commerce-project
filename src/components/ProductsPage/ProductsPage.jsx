@@ -1,7 +1,8 @@
 import NavBar from "../General/NavBar";
 import { FcCheckmark } from "react-icons/fc";
-import cartIcon from '../../assets/shopping-cart-black.svg'
+import cartIcon from "../../assets/shopping-cart-black.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./ProductsPage.css";
 
 export default function ProductsPage({
@@ -90,7 +91,11 @@ export default function ProductsPage({
         {filteredProducts
           ? filteredProducts.map((product) => {
               return (
-                <div className="product-card" key={product.id}>
+                <Link
+                  to={`/products/${product.id}`}
+                  className="product-card"
+                  key={product.id}
+                >
                   <div className="product-image-container">
                     <img className="product-image" src={product.image} />
                   </div>
@@ -109,27 +114,30 @@ export default function ProductsPage({
                             ? "cart-button-added"
                             : "cart-button"
                         }
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
                           addToCart(product.id);
                         }}
                       >
                         {clicked === product.id ? (
                           <FcCheckmark />
                         ) : (
-                          <img
-                            src={cartIcon}
-                            className="cart-button-black"
-                          />
+                          <img src={cartIcon} className="cart-button-black" />
                         )}
                       </button>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })
           : products.map((product) => {
               return (
-                <div className="product-card" key={product.id}>
+                <Link
+                  to={`/products/${product.id}`}
+                  className="product-card"
+                  key={product.id}
+                >
                   <div className="product-image-container">
                     <img className="product-image" src={product.image} />
                   </div>
@@ -148,22 +156,21 @@ export default function ProductsPage({
                             ? "cart-button-added"
                             : "cart-button"
                         }
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
                           addToCart(product.id);
                         }}
                       >
                         {clicked === product.id ? (
                           <FcCheckmark />
                         ) : (
-                          <img
-                            src={cartIcon}
-                            className="cart-button-black"
-                          />
+                          <img src={cartIcon} className="cart-button-black" />
                         )}
                       </button>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
       </div>
