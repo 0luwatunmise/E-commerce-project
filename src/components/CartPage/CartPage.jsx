@@ -158,7 +158,7 @@ export default function CartPage({ cart, setCart }) {
                 </div>
               </div>
 
-              <button className="btn-type2"> CheckOut </button>
+              <button className="btn-type2 checkout-btn"> CheckOut </button>
             </div>
           </div>
         </div>

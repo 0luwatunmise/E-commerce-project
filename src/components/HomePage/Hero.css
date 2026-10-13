@@ -51,10 +51,18 @@
   border: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .hero-text,
   .hero-link {
     max-width: 280px;
     left: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-text,
+  .hero-link {
+    max-width: 250px;
+    left: 25px;
   }
 }
