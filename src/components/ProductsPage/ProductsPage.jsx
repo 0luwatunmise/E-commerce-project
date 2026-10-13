@@ -1,4 +1,4 @@
-import NavBar from "../General/NavBar";
+import NavBar from "../NavBar/NavBar";
 import { FcCheckmark } from "react-icons/fc";
 import cartIcon from "../../assets/shopping-cart-black.svg";
 import { useState } from "react";

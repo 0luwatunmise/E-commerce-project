@@ -1,5 +1,5 @@
 import "./Homepage.css";
-import NavBar from "../General/NavBar";
+import NavBar from "../NavBar/NavBar";
 import Hero from "./Hero";
 import ProductsPreview from "./ProductsPreview";
 

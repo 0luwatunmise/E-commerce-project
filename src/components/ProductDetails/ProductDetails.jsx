@@ -2,7 +2,7 @@ import "./ProductDetails.css";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../General/NavBar";
+import NavBar from "../NavBar/NavBar";
 
 export default function ProductDetails({ products, addToCart, cartQuantity }) {
   const { id } = useParams();
