@@ -78,13 +78,14 @@ function App() {
     cartQuantity += cartItem.quantity;
   });
 
-  const [filteredProducts, setFilteredProducts] = useState(null)
-  function filterProducts(category) {
-    const filteredProducts = products.filter((product) =>
-      product.category.toLowerCase() === category,
-    );
-   setFilteredProducts(filteredProducts)
-  }
+const [activeCategory, setActiveCategory] = useState("all");
+
+const filteredProducts =
+  activeCategory === "all"
+    ? products
+    : products.filter(
+        (product) => product.category.toLowerCase() === activeCategory
+      );
 
   return (
     <div className="app">
@@ -109,9 +110,9 @@ function App() {
                 addToCart={addToCart}
                 cartQuantity={cartQuantity}
                 clicked={clicked}
-                filterProducts={filterProducts}
                 filteredProducts={filteredProducts}
-                setFilteredProducts={setFilteredProducts}
+                activeCategory={activeCategory}
+                setActiveCategory={setActiveCategory}
               />
             }
           />
