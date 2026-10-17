@@ -2,19 +2,27 @@ import "./NavBar.css";
 import { NavLink, useNavigate, useSearchParams } from "react-router-dom";
 import searchIcon from "../../assets/search.svg";
 import cartIcon from "../../assets/shopping-cart.svg";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function NavBar({ cartQuantity }) {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [input, setInput] = useState(searchParams.get("search") || "");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const inputRef = useRef(null);
 
   function search() {
     const term = input.trim();
-    navigate(
-      term ? `/products?search=${encodeURIComponent(term)}` : "/products",
-    );
+    if (term === "") {
+      return;
+    }
+    navigate(`/products?search=${encodeURIComponent(term)}`);
+    setSearchOpen(false);
   }
+
+  useEffect(() => {
+    if (searchOpen) inputRef.current.focus();
+  }, [searchOpen]);
 
   return (
     <>
@@ -35,12 +43,13 @@ export default function NavBar({ cartQuantity }) {
           <a>About us</a>
         </div>
 
-        <div className="nav-bar-center">HELLIOS</div>
+        <div className={`nav-bar-center ${searchOpen ? "open" : ""}`}>HELLIOS</div>
 
         <div className="nav-bar-right">
           <div className="search-container">
             <input
-              className="search-input"
+              ref={inputRef}
+              className={`search-input ${searchOpen ? "open" : ""} `}
               placeholder="what are you looking for?"
               value={input}
               onChange={(event) => setInput(event.target.value)}
@@ -49,7 +58,7 @@ export default function NavBar({ cartQuantity }) {
               src={searchIcon}
               className="search-icon"
               onClick={() => {
-                search();
+                !searchOpen ? setSearchOpen(true) : search();
               }}
             />
           </div>
